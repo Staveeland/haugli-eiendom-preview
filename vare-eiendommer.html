@@ -1,18 +1,29 @@
+Looking at the differences:
+
+1. The navigation links in header need to use proper filenames
+2. The property images are missing - need to use the extracted images
+3. The footer logo should use the white version
+4. The "Se ledige eiendommer" button needs proper styling and link
+5. Property cards need proper hover effects and layout
+6. Missing proper grid layout for properties
+7. Footer needs proper styling and layout
+
 <!DOCTYPE html>
 <html lang="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Våre eiendommer - Haugli Eiendom</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-brown: #4a3425;
-            --secondary-brown: #5a4434;
-            --accent-orange: #d4822a;
-            --light-gray: #f5f5f5;
-            --text-gray: #666;
-            --text-dark: #333;
+            --primary-brown: #8B4513;
+            --light-brown: #D2B48C;
+            --dark-brown: #5D2F0A;
+            --orange: #E67E22;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --background-light: #F8F8F8;
         }
 
         * {
@@ -25,121 +36,130 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: var(--text-dark) !important;
-            background-color: #ffffff !important;
+            background-color: #FFFFFF !important;
         }
 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
         .header {
+            background-color: #FFFFFF !important;
+            padding: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 40px;
-            background-color: #ffffff !important;
         }
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-brown) !important;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .logo img {
+            height: 40px;
         }
 
-        .logo-subtitle {
-            font-size: 12px;
-            font-weight: 400;
-            letter-spacing: 3px;
-            margin-top: -5px;
-        }
-
-        .nav-menu {
+        .nav-links {
             display: flex;
-            gap: 30px;
+            list-style: none;
+            gap: 40px;
         }
 
-        .nav-menu a {
+        .nav-links a {
             text-decoration: none;
-            color: var(--text-gray) !important;
-            font-size: 14px;
+            color: var(--text-light) !important;
             font-weight: 400;
             transition: color 0.3s;
         }
 
-        .nav-menu a:hover {
-            color: var(--accent-orange) !important;
-        }
-
-        .main-content {
-            padding: 60px 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .page-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-        }
-
-        .page-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            font-weight: 400;
+        .nav-links a:hover {
             color: var(--primary-brown) !important;
         }
 
-        .see-all-link {
-            color: var(--accent-orange) !important;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 500;
+        /* Main Content */
+        .main-content {
+            padding: 80px 0;
         }
 
-        .intro-text {
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
             margin-bottom: 60px;
-            max-width: 800px;
+        }
+
+        .content-title {
+            flex: 1;
+        }
+
+        .content-title h1 {
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--primary-brown) !important;
+            margin-bottom: 30px;
         }
 
         .text-block {
-            color: var(--text-gray) !important;
-            font-size: 16px;
-            line-height: 1.8;
-            margin-bottom: 20px;
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-light) !important;
+            max-width: 600px;
         }
 
+        .cta-button {
+            background-color: var(--orange) !important;
+            color: #FFFFFF !important;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+            margin-left: 40px;
+        }
+
+        .cta-button:hover {
+            background-color: #D35400 !important;
+        }
+
+        /* Properties Grid */
         .properties-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
         }
 
         .property-card {
-            background: #ffffff !important;
-            border-radius: 8px;
+            background-color: #FFFFFF !important;
+            border-radius: 12px;
             overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
         }
 
         .property-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
         }
 
         .property-image {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            display: block;
         }
 
         .property-info {
-            padding: 20px;
+            padding: 24px;
         }
 
         .property-name {
-            font-family: 'Playfair Display', serif;
             font-size: 20px;
             font-weight: 600;
             color: var(--primary-brown) !important;
@@ -147,104 +167,69 @@
         }
 
         .property-details {
-            color: var(--text-gray) !important;
             font-size: 14px;
-            font-weight: 400;
+            color: var(--text-light) !important;
         }
 
+        /* Footer */
         .footer {
-            background-color: var(--primary-brown) !important;
-            color: #ffffff !important;
-            padding: 60px 40px 40px;
+            background-color: var(--dark-brown) !important;
+            color: #FFFFFF !important;
+            padding: 60px 0 40px;
         }
 
         .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             gap: 60px;
         }
 
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            font-weight: 700;
-            color: #ffffff !important;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
-        }
-
-        .footer-logo-subtitle {
-            font-size: 14px;
-            font-weight: 400;
-            letter-spacing: 4px;
-            color: #ffffff !important;
-        }
-
-        .footer-section h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            font-weight: 600;
-            color: #ffffff !important;
+        .footer-logo img {
+            height: 50px;
             margin-bottom: 20px;
         }
 
-        .footer-section .text-block {
-            color: #cccccc !important;
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 10px;
+        .footer-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #FFFFFF !important;
         }
 
+        .footer-section .text-block,
         .footer-section a {
-            color: #cccccc !important;
+            color: #CCCCCC !important;
             text-decoration: none;
-            font-size: 14px;
             display: block;
             margin-bottom: 8px;
-            transition: color 0.3s;
         }
 
         .footer-section a:hover {
-            color: var(--accent-orange) !important;
+            color: #FFFFFF !important;
         }
 
+        /* Responsive */
         @media (max-width: 900px) {
-            .header {
-                padding: 20px;
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .nav-menu {
-                gap: 20px;
-            }
-
-            .main-content {
-                padding: 40px 20px;
-            }
-
-            .page-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 20px;
-            }
-
-            .page-title {
-                font-size: 36px;
-            }
-
             .properties-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
+            }
+
+            .content-header {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .cta-button {
+                margin-left: 0;
+            }
+
+            .content-title h1 {
+                font-size: 36px;
             }
 
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 40px;
-                padding: 0 20px;
             }
         }
 
@@ -253,145 +238,160 @@
                 grid-template-columns: 1fr;
             }
 
-            .page-title {
+            .nav-links {
+                gap: 20px;
+            }
+
+            .content-title h1 {
                 font-size: 28px;
             }
 
-            .main-content {
-                padding: 30px 15px;
-            }
-
-            .footer {
-                padding: 40px 15px 30px;
+            .text-block {
+                font-size: 16px;
             }
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="logo">
-            <span class="block">HAUGLI</span>
-            <div class="logo-subtitle">EIENDOM</div>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="images/logo-dark.svg" alt="Haugli Eiendom">
+                </div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="vare-eiendommer.html">Våre eiendommer</a></li>
+                        <li><a href="om-oss.html">Om oss</a></li>
+                        <li><a href="kontakt-oss.html">Kontakt oss</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-        <nav class="nav-menu">
-            <a href="#">Våre eiendommer</a>
-            <a href="#">Om oss</a>
-            <a href="#">Kontakt oss</a>
-        </nav>
     </header>
 
     <main class="main-content">
-        <div class="page-header">
-            <h1 class="page-title">Våre eiendommer</h1>
-            <a href="#" class="see-all-link">Se ledige eiendommer</a>
-        </div>
-
-        <div class="intro-text">
-            <div class="text-block">I Haugli Eiendom forvalter vi en variert portefølje på Haugalandet. Alt fra næringslokaler innen handel, kontor og lager til boliger og sentrumsbygg. Her får du oversikt over våre eiendommer. Klikk deg inn på hvert objekt for mer informasjon om eiendommen.</div>
-        </div>
-
-        <div class="properties-grid">
-            <div class="property-card">
-                <img src="images/extracted_0.jpg" alt="Tesalongen" class="property-image">
-                <div class="property-info">
-                    <h3 class="property-name">Tesalongen</h3>
-                    <div class="property-details">Haugesund - 72 m²</div>
+        <div class="container">
+            <div class="content-header">
+                <div class="content-title">
+                    <h1>Våre eiendommer</h1>
+                    <div class="text-block">
+                        I Haugli Eiendom forvalter vi en variert portefølje på Haugalandet. Alt fra næringslokaler innen handel, kontor og<br>
+                        lager til boliger og sentrumsbygg. Her får du oversikt over våre eiendommer. Klikk deg inn på hvert objekt for mer<br>
+                        informasjon om eiendommen.
+                    </div>
                 </div>
+                <a href="vare-eiendommer.html" class="cta-button">Se ledige eiendommer</a>
             </div>
 
-            <div class="property-card">
-                <img src="images/extracted_1.jpg" alt="Coop Park +" class="property-image">
-                <div class="property-info">
-                    <h3 class="property-name">Coop Park +</h3>
-                    <div class="property-details">Haugesund - 72 m²</div>
+            <div class="properties-grid">
+                <div class="property-card">
+                    <img src="images/extracted_1.jpg" alt="Tesalongen" class="property-image">
+                    <div class="property-info">
+                        <div class="property-name">Tesalongen</div>
+                        <div class="property-details">Haugesund - 72 m²</div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="property-card">
-                <img src="images/extracted_2.jpg" alt="Spar Skåredalen" class="property-image">
-                <div class="property-info">
-                    <h3 class="property-name">Spar Skåredalen</h3>
-                    <div class="property-details">Haugesund - 72 m²</div>
+                <div class="property-card">
+                    <img src="images/extracted_2.jpg" alt="Coop Park +" class="property-image">
+                    <div class="property-info">
+                        <div class="property-name">Coop Park +</div>
+                        <div class="property-details">Haugesund - 72 m²</div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="property-card">
-                <img src="images/extracted_3.jpg" alt="Circle-K Husnes" class="property-image">
-                <div class="property-info">
-                    <h3 class="property-name">Circle-K Husnes</h3>
-                    <div class="property-details">Husnes - 72 m²</div>
+                <div class="property-card">
+                    <img src="images/extracted_3.jpg" alt="Spar Skåredalen" class="property-image">
+                    <div class="property-info">
+                        <div class="property-name">Spar Skåredalen</div>
+                        <div class="property-details">Haugesund - 72 m²</div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="property-card">
-                <img src="images/extracted_4.jpg" alt="Coop Extra Kvala" class="property-image">
-                <div class="property-info">
-                    <h3 class="property-name">Coop Extra Kvala</h3>
-                    <div class="property-details">Haugesund - 72 m²</div>
+                <div class="property-card">
+                    <img src="images/extracted_4.jpg" alt="Circle-K Husnes" class="property-image">
+                    <div class="property-info">
+                        <div class="property-name">Circle-K Husnes</div>
+                        <div class="property-details">Husnes - 72 m²</div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="property-card">
-                <img src="images/extracted_5.jpg" alt="Ahlsell Stord" class="property-image">
-                <div class="property-info">
-                    <h3 class="property-name">Ahlsell Stord</h3>
-                    <div class="property-details">Stord - 72 m²</div>
+                <div class="property-card">
+                    <img src="images/extracted_5.jpg" alt="Coop Extra Kvala" class="property-image">
+                    <div class="property-info">
+                        <div class="property-name">Coop Extra Kvala</div>
+                        <div class="property-details">Haugesund - 72 m²</div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="property-card">
-                <img src="images/extracted_6.jpg" alt="Rema 1000 i Etne Senter" class="property-image">
-                <div class="property-info">
-                    <h3 class="property-name">Rema 1000 i Etne Senter</h3>
-                    <div class="property-details">Etne - 72 m²</div>
+                <div class="property-card">
+                    <img src="images/extracted_6.jpg" alt="Ahlsell Stord" class="property-image">
+                    <div class="property-info">
+                        <div class="property-name">Ahlsell Stord</div>
+                        <div class="property-details">Stord - 72 m²</div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="property-card">
-                <img src="images/extracted_7.jpg" alt="Rennesøygata 10" class="property-image">
-                <div class="property-info">
-                    <h3 class="property-name">Rennesøygata 10</h3>
-                    <div class="property-details">Haugesund - 72 m²</div>
+                <div class="property-card">
+                    <img src="images/extracted_7.jpg" alt="Rema 1000 i Etne Senter" class="property-image">
+                    <div class="property-info">
+                        <div class="property-name">Rema 1000 i Etne Senter</div>
+                        <div class="property-details">Etne - 72 m²</div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="property-card">
-                <img src="images/extracted_8.jpg" alt="Ludolf Eides Gate 6" class="property-image">
-                <div class="property-info">
-                    <h3 class="property-name">Ludolf Eides Gate 6</h3>
-                    <div class="property-details">Haugesund - 72 m²</div>
+                <div class="property-card">
+                    <img src="images/extracted_8.jpg" alt="Rennesøygata 10" class="property-image">
+                    <div class="property-info">
+                        <div class="property-name">Rennesøygata 10</div>
+                        <div class="property-details">Haugesund - 72 m²</div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="property-card">
-                <img src="images/extracted_9.jpg" alt="Rennesøygata 8" class="property-image">
-                <div class="property-info">
-                    <h3 class="property-name">Rennesøygata 8</h3>
-                    <div class="property-details">Haugesund - 72 m²</div>
+                <div class="property-card">
+                    <img src="images/extracted_9.jpg" alt="Ludolf Eides Gate 6" class="property-image">
+                    <div class="property-info">
+                        <div class="property-name">Ludolf Eides Gate 6</div>
+                        <div class="property-details">Haugesund - 72 m²</div>
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <img src="images/extracted_0.jpg" alt="Rennesøygata 8" class="property-image">
+                    <div class="property-info">
+                        <div class="property-name">Rennesøygata 8</div>
+                        <div class="property-details">Haugesund - 72 m²</div>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
 
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <div class="footer-logo">HAUGLI</div>
-                <div class="footer-logo-subtitle">EIENDOM</div>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Haugli Eiendom</h3>
-                <div class="text-block">Rennesøygata 10<br>5537 Haugesund</div>
-                <div class="text-block">Personvernerklæring</div>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Lenker</h3>
-                <a href="#">Våre eiendommer</a>
-                <a href="#">Om oss</a>
-                <a href="#">Kontakt oss</a>
-                <a href="#">Haugli Bakeri</a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/logo-white.svg" alt="Haugli Eiendom">
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Haugli Eiendom</h3>
+                    <div class="text-block">Rennesøygata 10</div>
+                    <div class="text-block">5537 Haugesund</div>
+                    <br>
+                    <a href="#">Personvernerklæring</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Lenker</h3>
+                    <a href="vare-eiendommer.html">Våre eiendommer</a>
+                    <a href="om-oss.html">Om oss</a>
+                    <a href="kontakt-oss.html">Kontakt oss</a>
+                    <a href="#">Haugli Bakeri</a>
+                </div>
             </div>
         </div>
     </footer>
