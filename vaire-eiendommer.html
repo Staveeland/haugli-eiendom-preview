@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Våre eiendommer - Haugli Eiendom</title>
+    <style>
+        :root {
+            --primary-color: #333333;
+            --secondary-color: #3e1e00;
+            --accent-color: #e96706;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            color: var(--primary-color);
+        }
+
+        header, .footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 20px;
+        }
+
+        header a, .footer a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .text-block {
+            margin-bottom: 20px;
+        }
+
+        .text-block .meta {
+            color: var(--accent-color);
+        }
+
+        .properties {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .property {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .property img {
+            width: 100%;
+        }
+
+        .property-details {
+            padding: 10px;
+        }
+
+        h1, h2 {
+            color: var(--secondary-color);
+        }
+
+        .footer {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .footer div {
+            text-align: left;
+        }
+
+        @media (max-width: 900px) {
+            .footer {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .footer div {
+                text-align: center;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="container">
+    <a href="#">Våre eiendommer</a>
+    <a href="#">Om oss</a>
+    <a href="#">Kontakt oss</a>
+</header>
+
+<main class="container">
+    <h1>Våre eiendommer</h1>
+    <div class="text-block">
+        <span>I Haugli Eiendom forvalter vi en variert portefølje på Haugalandet. Alt fra næringslokaler innen handel, kontor og lager til boliger og sentrumsbygg.</span> <br>
+        <span>Her får du oversikt over våre eiendommer. Klikk deg inn på hvert objekt for mer informasjon om eiendommen.</span><br>
+        <span><a href="#" class="meta">Se ledige eiendommer</a></span>
+    </div>
+
+    <div class="properties">
+        <div class="property">
+            <img src="images/extracted_0.jpg" alt="Tesalongen">
+            <div class="property-details">
+                <strong>Tesalongen</strong><br>
+                <span class="block">Haugesund</span><br>
+                <span class="meta">72 m²</span>
+            </div>
+        </div>
+        <div class="property">
+            <img src="images/extracted_1.jpg" alt="Coop Park +">
+            <div class="property-details">
+                <strong>Coop Park +</strong><br>
+                <span class="block">Haugesund</span><br>
+                <span class="meta">72 m²</span>
+            </div>
+        </div>
+        <div class="property">
+            <img src="images/extracted_2.jpg" alt="Spar Skåredalen">
+            <div class="property-details">
+                <strong>Spar Skåredalen</strong><br>
+                <span class="block">Haugesund</span><br>
+                <span class="meta">72 m²</span>
+            </div>
+        </div>
+        <div class="property">
+            <img src="images/extracted_3.jpg" alt="Circle-K Husnes">
+            <div class="property-details">
+                <strong>Circle-K Husnes</strong><br>
+                <span class="block">Husnes</span><br>
+                <span class="meta">72 m²</span>
+            </div>
+        </div>
+        <div class="property">
+            <img src="images/extracted_4.jpg" alt="Coop Extra Kvala">
+            <div class="property-details">
+                <strong>Coop Extra Kvala</strong><br>
+                <span class="block">Haugesund</span><br>
+                <span class="meta">72 m²</span>
+            </div>
+        </div>
+        <div class="property">
+            <img src="images/extracted_5.jpg" alt="Ahlsell Stord">
+            <div class="property-details">
+                <strong>Ahlsell Stord</strong><br>
+                <span class="block">Stord</span><br>
+                <span class="meta">72 m²</span>
+            </div>
+        </div>
+        <div class="property">
+            <img src="images/extracted_6.jpg" alt="Rema 1000 i Etne Senter">
+            <div class="property-details">
+                <strong>Rema 1000 i Etne Senter</strong><br>
+                <span class="block">Etne</span><br>
+                <span class="meta">72 m²</span>
+            </div>
+        </div>
+        <div class="property">
+            <img src="images/extracted_7.jpg" alt="Rennesøygata 10">
+            <div class="property-details">
+                <strong>Rennesøygata 10</strong><br>
+                <span class="block">Haugesund</span><br>
+                <span class="meta">72 m²</span>
+            </div>
+        </div>
+        <div class="property">
+            <img src="images/extracted_8.jpg" alt="Ludolf Eides Gate 6">
+            <div class="property-details">
+                <strong>Ludolf Eides Gate 6</strong><br>
+                <span class="block">Haugesund</span><br>
+                <span class="meta">72 m²</span>
+            </div>
+        </div>
+        <div class="property">
+            <img src="images/extracted_9.jpg" alt="Rennesøygata 8">
+            <div class="property-details">
+                <strong>Rennesøygata 8</strong><br>
+                <span class="block">Haugesund</span><br>
+                <span class="meta">72 m²</span>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div>
+            <h2>Haugli Eiendom</h2>
+            <span>Rennesøygata 10</span><br>
+            <span>5537 Haugesund</span><br>
+            <span>Personvernerklæring</span>
+        </div>
+        <div>
+            <h2>Lenker</h2>
+            <span>Våre eiendommer</span><br>
+            <span>Om oss</span><br>
+            <span>Kontakt oss</span><br>
+            <span>Haugli Bakeri</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

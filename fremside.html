@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haugli Eiendom</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #e07635;
+            --dark-brown: #5a3a2a;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-light: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif !important;
+            line-height: 1.6;
+            color: var(--text-dark) !important;
+        }
+
+        .text-block {
+            margin: 0;
+            padding: 0;
+        }
+
+        .block {
+            display: block;
+        }
+
+        .meta {
+            font-size: 0.9em;
+            color: var(--text-light) !important;
+        }
+
+        /* Header */
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 20px 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--white) !important;
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .logo-sub {
+            font-size: 12px;
+            font-weight: 300;
+            display: block;
+            margin-top: -5px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav a {
+            color: var(--white) !important;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/extracted_0.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            color: var(--white) !important;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 .orange {
+            color: var(--primary-orange) !important;
+        }
+
+        .hero .text-block {
+            font-size: 16px;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        /* Cards Section */
+        .cards-section {
+            padding: 80px 0;
+            background-color: var(--light-gray) !important;
+        }
+
+        .cards-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .card {
+            padding: 40px;
+            border-radius: 8px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-orange {
+            background-color: var(--primary-orange) !important;
+            color: var(--white) !important;
+        }
+
+        .card-white {
+            background-color: var(--white) !important;
+            color: var(--text-dark) !important;
+            border: 1px solid #e0e0e0;
+        }
+
+        .card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .card .text-block {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .card-arrow {
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--dark-brown) !important;
+            color: var(--white) !important;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .cta-section .text-block {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .cta-btn {
+            background-color: var(--primary-orange) !important;
+            color: var(--white) !important;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        /* Properties Section */
+        .properties-section {
+            padding: 80px 0;
+            background-color: var(--white) !important;
+        }
+
+        .properties-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .properties-section h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 300;
+            margin-bottom: 50px;
+            color: var(--text-dark) !important;
+        }
+
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .property-card {
+            background-color: var(--white) !important;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .property-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .property-info {
+            padding: 20px;
+        }
+
+        .property-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-dark) !important;
+        }
+
+        .property-meta {
+            font-size: 14px;
+            color: var(--text-light) !important;
+        }
+
+        /* Tenants Section */
+        .tenants-section {
+            padding: 60px 0;
+            background-color: var(--light-gray) !important;
+        }
+
+        .tenants-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .tenants-section h2 {
+            font-size: 36px;
+            font-weight: 300;
+            margin-bottom: 40px;
+            color: var(--text-dark) !important;
+        }
+
+        .tenants-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+            align-items: center;
+        }
+
+        .tenant-logo {
+            height: 60px;
+            object-fit: contain;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .tenant-logo:hover {
+            opacity: 1;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-brown) !important;
+            color: var(--white) !important;
+            padding: 60px 0 40px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-logo {
+            color: var(--white) !important;
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .footer-column h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-column .text-block {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .footer-column a {
+            color: var(--white) !important;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .properties-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tenants-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .properties-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tenants-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .card {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">
+                HAUGLI
+                <span class="logo-sub">EIENDOM</span>
+            </a>
+            <nav class="nav">
+                <a href="#">Våre eiendommer</a>
+                <a href="#">Om oss</a>
+                <a href="#">Kontakt oss</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1><span class="orange">Haugli</span> Eiendom</h1>
+            <div class="text-block">
+                En solid eiendomsaktør på Haugalandet i over 40 år.<br>
+                Haugli Eiendom utvikler og forvalter næringslokaler, boliger og sentrumsbygd.<br>
+                Vår erfaring og lokale forankring gir trygge rammer for både bedrifter og<br>
+                leietakere.
+            </div>
+        </div>
+    </section>
+
+    <!-- Cards Section -->
+    <section class="cards-section">
+        <div class="cards-container">
+            <div class="card card-orange">
+                <h3>Våre eiendommer</h3>
+                <div class="text-block">
+                    Se vårt utvalg av næringslokaler, boliger<br>
+                    og sentrumsbygd på Haugalandet.
+                </div>
+                <div class="card-arrow">→</div>
+            </div>
+            <div class="card card-white">
+                <h3>Ledige eiendommer</h3>
+                <div class="text-block">
+                    Se våre tilgjengelige næringslokaler og<br>
+                    finn plassen som passer din virksomhet.
+                </div>
+                <div class="card-arrow">→</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Leter dere etter lokale?</h2>
+            <div class="text-block">
+                Haugli Eiendom tilbyr et bredt utvalg næringslokaler i Haugesund og på<br>
+                Haugalandet. Vi har moderne lokaler til handel, kontor, lager og produksjon<br>
+                – tilpasset bedriftens behov.
+            </div>
+            <div class="text-block">
+                Med over 40 års erfaring innen næringseiendom og eiendomsforvaltning, legger<br>
+                vi vekt på fleksible løsninger, langsiktige leieavtaler og trygge rammer.
+            </div>
+            <div class="text-block">
+                Ta kontakt med oss i dag for å høre mer om våre ledige lokaler – kanskje vi har<br>
+                den perfekte plasseringen for din virksomhet.
+            </div>
+            <a href="#" class="cta-btn">Ta kontakt</a>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section class="properties-section">
+        <div class="properties-container">
+            <h2>Utvalgte eiendommer</h2>
+            <div class="properties-grid">
+                <div class="property-card">
+                    <img src="images/extracted_1.jpg" alt="Tesalongen" class="property-image">
+                    <div class="property-info">
+                        <div class="property-title">Tesalongen</div>
+                        <div class="property-meta">Haugesund • 72 m²</div>
+                    </div>
+                </div>
+                <div class="property-card">
+                    <img src="images/extracted_2.jpg" alt="Husnes" class="property-image">
+                    <div class="property-info">
+                        <div class="property-title">Husnes</div>
+                        <div class="property-meta">Haugesund • 72 m²</div>
+                    </div>
+                </div>
+                <div class="property-card">
+                    <img src="images/extracted_3.jpg" alt="Rennesøygata 8" class="property-image">
+                    <div class="property-info">
+                        <div class="property-title">Rennesøygata 8</div>
+                        <div class="property-meta">Haugesund • 72 m²</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tenants Section -->
+    <section class="tenants-section">
+        <div class="tenants-container">
+            <h2>Noen av våre leietakere</h2>
+            <div class="tenants-grid">
+                <img src="images/extracted_4.jpg" alt="Spar" class="tenant-logo">
+                <img src="images/extracted_5.jpg" alt="Rema 1000" class="tenant-logo">
+                <img src="images/extracted_6.jpg" alt="Extra" class="tenant-logo">
+                <img src="images/extracted_7.jpg" alt="Europris" class="tenant-logo">
+                <img src="images/extracted_8.jpg" alt="Ahlsell" class="tenant-logo">
+                <img src="images/extracted_9.jpg" alt="Circle K" class="tenant-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <a href="#" class="footer-logo">
+                    HAUGLI<br>
+                    <span style="font-size: 14px; font-weight: 300;">EIENDOM</span>
+                </a>
+            </div>
+            <div class="footer-column">
+                <h4>Haugli Eiendom</h4>
+                <div class="text-block">Rennesøygata 10</div>
+                <div class="text-block">5537 Haugesund</div>
+                <br>
+                <div class="text-block">Personvernerklæring</div>
+            </div>
+            <div class="footer-column">
+                <h4>Lenker</h4>
+                <div class="text-block"><a href="#">Våre eiendommer</a></div>
+                <div class="text-block"><a href="#">Om oss</a></div>
+                <div class="text-block"><a href="#">Kontakt oss</a></div>
+                <div class="text-block"><a href="#">Haugli Bakeri</a></div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
