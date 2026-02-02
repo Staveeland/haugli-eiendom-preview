@@ -1,29 +1,20 @@
-Looking at the differences:
-
-1. The navigation links in header need to use proper filenames
-2. The property images are missing - need to use the extracted images
-3. The footer logo should use the white version
-4. The "Se ledige eiendommer" button needs proper styling and link
-5. Property cards need proper hover effects and layout
-6. Missing proper grid layout for properties
-7. Footer needs proper styling and layout
-
 <!DOCTYPE html>
 <html lang="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Våre eiendommer - Haugli Eiendom</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-brown: #8B4513;
             --light-brown: #D2B48C;
-            --dark-brown: #5D2F0A;
-            --orange: #E67E22;
-            --text-dark: #333333;
-            --text-light: #666666;
-            --background-light: #F8F8F8;
+            --dark-brown: #654321;
+            --text-dark: #333;
+            --text-light: #666;
+            --text-meta: #999;
+            --white: #ffffff;
+            --orange: #ff6b35;
         }
 
         * {
@@ -36,7 +27,7 @@ Looking at the differences:
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: var(--text-dark) !important;
-            background-color: #FFFFFF !important;
+            background-color: var(--white) !important;
         }
 
         .container {
@@ -47,9 +38,9 @@ Looking at the differences:
 
         /* Header */
         .header {
-            background-color: #FFFFFF !important;
+            background-color: var(--white) !important;
             padding: 20px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .header-content {
@@ -58,30 +49,30 @@ Looking at the differences:
             align-items: center;
         }
 
-        .logo img {
+        .logo {
             height: 40px;
         }
 
-        .nav-links {
+        .nav {
             display: flex;
-            list-style: none;
             gap: 40px;
         }
 
-        .nav-links a {
+        .nav a {
             text-decoration: none;
-            color: var(--text-light) !important;
-            font-weight: 400;
+            color: var(--text-dark) !important;
+            font-weight: 500;
             transition: color 0.3s;
         }
 
-        .nav-links a:hover {
-            color: var(--primary-brown) !important;
+        .nav a:hover {
+            color: var(--orange) !important;
         }
 
-        /* Main Content */
-        .main-content {
+        /* Main content */
+        .main-section {
             padding: 80px 0;
+            background-color: var(--white) !important;
         }
 
         .content-header {
@@ -91,62 +82,51 @@ Looking at the differences:
             margin-bottom: 60px;
         }
 
-        .content-title {
-            flex: 1;
+        .main-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--text-dark) !important;
+            margin: 0;
         }
 
-        .content-title h1 {
-            font-size: 48px;
-            font-weight: 600;
-            color: var(--primary-brown) !important;
-            margin-bottom: 30px;
+        .cta-link {
+            color: var(--orange) !important;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .intro-text {
+            max-width: 800px;
+            margin-bottom: 60px;
         }
 
         .text-block {
             font-size: 18px;
-            line-height: 1.7;
             color: var(--text-light) !important;
-            max-width: 600px;
+            line-height: 1.8;
+            margin-bottom: 20px;
         }
 
-        .cta-button {
-            background-color: var(--orange) !important;
-            color: #FFFFFF !important;
-            padding: 16px 32px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: background-color 0.3s;
-            margin-left: 40px;
-        }
-
-        .cta-button:hover {
-            background-color: #D35400 !important;
-        }
-
-        /* Properties Grid */
+        /* Properties grid */
         .properties-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
         }
 
         .property-card {
-            background-color: #FFFFFF !important;
-            border-radius: 12px;
+            background-color: var(--white) !important;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
         }
 
         .property-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
         .property-image {
@@ -156,25 +136,25 @@ Looking at the differences:
         }
 
         .property-info {
-            padding: 24px;
+            padding: 20px;
         }
 
-        .property-name {
-            font-size: 20px;
+        .property-title {
+            font-size: 18px;
             font-weight: 600;
-            color: var(--primary-brown) !important;
+            color: var(--text-dark) !important;
             margin-bottom: 8px;
         }
 
-        .property-details {
+        .property-meta {
             font-size: 14px;
-            color: var(--text-light) !important;
+            color: var(--text-meta) !important;
         }
 
         /* Footer */
         .footer {
-            background-color: var(--dark-brown) !important;
-            color: #FFFFFF !important;
+            background-color: var(--primary-brown) !important;
+            color: var(--white) !important;
             padding: 60px 0 40px;
         }
 
@@ -184,51 +164,53 @@ Looking at the differences:
             gap: 60px;
         }
 
-        .footer-logo img {
-            height: 50px;
-            margin-bottom: 20px;
+        .footer-logo {
+            height: 60px;
+            margin-bottom: 40px;
         }
 
         .footer-section h3 {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 600;
             margin-bottom: 20px;
-            color: #FFFFFF !important;
+            color: var(--white) !important;
         }
 
-        .footer-section .text-block,
-        .footer-section a {
-            color: #CCCCCC !important;
-            text-decoration: none;
-            display: block;
+        .footer-section .text-block {
+            color: var(--white) !important;
             margin-bottom: 8px;
         }
 
+        .footer-section a {
+            color: var(--white) !important;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: opacity 0.3s;
+        }
+
         .footer-section a:hover {
-            color: #FFFFFF !important;
+            opacity: 0.8;
         }
 
         /* Responsive */
         @media (max-width: 900px) {
             .properties-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .main-title {
+                font-size: 36px;
             }
 
             .content-header {
                 flex-direction: column;
-                gap: 30px;
-            }
-
-            .cta-button {
-                margin-left: 0;
-            }
-
-            .content-title h1 {
-                font-size: 36px;
+                gap: 20px;
             }
 
             .footer-content {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
                 gap: 40px;
             }
         }
@@ -238,16 +220,17 @@ Looking at the differences:
                 grid-template-columns: 1fr;
             }
 
-            .nav-links {
+            .nav {
                 gap: 20px;
             }
 
-            .content-title h1 {
+            .main-title {
                 font-size: 28px;
             }
 
-            .text-block {
-                font-size: 16px;
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
         }
     </style>
@@ -256,112 +239,105 @@ Looking at the differences:
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <div class="logo">
-                    <img src="images/logo-dark.svg" alt="Haugli Eiendom">
-                </div>
-                <nav>
-                    <ul class="nav-links">
-                        <li><a href="vare-eiendommer.html">Våre eiendommer</a></li>
-                        <li><a href="om-oss.html">Om oss</a></li>
-                        <li><a href="kontakt-oss.html">Kontakt oss</a></li>
-                    </ul>
+                <img src="images/logo-dark.svg" alt="Haugli Eiendom" class="logo">
+                <nav class="nav">
+                    <a href="vare-eiendommer.html">Våre eiendommer</a>
+                    <a href="om-oss.html">Om oss</a>
+                    <a href="kontakt-oss.html">Kontakt oss</a>
                 </nav>
             </div>
         </div>
     </header>
 
-    <main class="main-content">
+    <main class="main-section">
         <div class="container">
             <div class="content-header">
-                <div class="content-title">
-                    <h1>Våre eiendommer</h1>
-                    <div class="text-block">
-                        I Haugli Eiendom forvalter vi en variert portefølje på Haugalandet. Alt fra næringslokaler innen handel, kontor og<br>
-                        lager til boliger og sentrumsbygg. Her får du oversikt over våre eiendommer. Klikk deg inn på hvert objekt for mer<br>
-                        informasjon om eiendommen.
-                    </div>
-                </div>
-                <a href="vare-eiendommer.html" class="cta-button">Se ledige eiendommer</a>
+                <h1 class="main-title">Våre eiendommer</h1>
+                <a href="#" class="cta-link">Se ledige eiendommer</a>
+            </div>
+
+            <div class="intro-text">
+                <div class="text-block">I Haugli Eiendom forvalter vi en variert portefølje på Haugalandet. Alt fra næringslokaler innen handel, kontor og lager til boliger og sentrumsbygg. Her får du oversikt over våre eiendommer. Klikk deg inn på hvert objekt for mer informasjon om eiendommen.</div>
             </div>
 
             <div class="properties-grid">
                 <div class="property-card">
                     <img src="images/extracted_1.jpg" alt="Tesalongen" class="property-image">
                     <div class="property-info">
-                        <div class="property-name">Tesalongen</div>
-                        <div class="property-details">Haugesund - 72 m²</div>
+                        <h3 class="property-title">Tesalongen</h3>
+                        <div class="property-meta">Haugesund - 72 m²</div>
                     </div>
                 </div>
 
                 <div class="property-card">
                     <img src="images/extracted_2.jpg" alt="Coop Park +" class="property-image">
                     <div class="property-info">
-                        <div class="property-name">Coop Park +</div>
-                        <div class="property-details">Haugesund - 72 m²</div>
+                        <h3 class="property-title">Coop Park +</h3>
+                        <div class="property-meta">Haugesund - 72 m²</div>
                     </div>
                 </div>
 
                 <div class="property-card">
                     <img src="images/extracted_3.jpg" alt="Spar Skåredalen" class="property-image">
                     <div class="property-info">
-                        <div class="property-name">Spar Skåredalen</div>
-                        <div class="property-details">Haugesund - 72 m²</div>
+                        <h3 class="property-title">Spar Skåredalen</h3>
+                        <div class="property-meta">Haugesund - 72 m²</div>
                     </div>
                 </div>
 
                 <div class="property-card">
                     <img src="images/extracted_4.jpg" alt="Circle-K Husnes" class="property-image">
                     <div class="property-info">
-                        <div class="property-name">Circle-K Husnes</div>
-                        <div class="property-details">Husnes - 72 m²</div>
+                        <h3 class="property-title">Circle-K Husnes</h3>
+                        <div class="property-meta">Husnes - 72 m²</div>
                     </div>
                 </div>
 
                 <div class="property-card">
                     <img src="images/extracted_5.jpg" alt="Coop Extra Kvala" class="property-image">
                     <div class="property-info">
-                        <div class="property-name">Coop Extra Kvala</div>
-                        <div class="property-details">Haugesund - 72 m²</div>
+                        <h3 class="property-title">Coop Extra Kvala</h3>
+                        <div class="property-meta">Haugesund - 72 m²</div>
                     </div>
                 </div>
 
                 <div class="property-card">
                     <img src="images/extracted_6.jpg" alt="Ahlsell Stord" class="property-image">
                     <div class="property-info">
-                        <div class="property-name">Ahlsell Stord</div>
-                        <div class="property-details">Stord - 72 m²</div>
+                        <h3 class="property-title">Ahlsell Stord</h3>
+                        <div class="property-meta">Stord - 72 m²</div>
                     </div>
                 </div>
 
                 <div class="property-card">
                     <img src="images/extracted_7.jpg" alt="Rema 1000 i Etne Senter" class="property-image">
                     <div class="property-info">
-                        <div class="property-name">Rema 1000 i Etne Senter</div>
-                        <div class="property-details">Etne - 72 m²</div>
+                        <h3 class="property-title">Rema 1000 i Etne Senter</h3>
+                        <div class="property-meta">Etne - 72 m²</div>
                     </div>
                 </div>
 
                 <div class="property-card">
                     <img src="images/extracted_8.jpg" alt="Rennesøygata 10" class="property-image">
                     <div class="property-info">
-                        <div class="property-name">Rennesøygata 10</div>
-                        <div class="property-details">Haugesund - 72 m²</div>
+                        <h3 class="property-title">Rennesøygata 10</h3>
+                        <div class="property-meta">Haugesund - 72 m²</div>
                     </div>
                 </div>
 
                 <div class="property-card">
                     <img src="images/extracted_9.jpg" alt="Ludolf Eides Gate 6" class="property-image">
                     <div class="property-info">
-                        <div class="property-name">Ludolf Eides Gate 6</div>
-                        <div class="property-details">Haugesund - 72 m²</div>
+                        <h3 class="property-title">Ludolf Eides Gate 6</h3>
+                        <div class="property-meta">Haugesund - 72 m²</div>
                     </div>
                 </div>
 
                 <div class="property-card">
                     <img src="images/extracted_0.jpg" alt="Rennesøygata 8" class="property-image">
                     <div class="property-info">
-                        <div class="property-name">Rennesøygata 8</div>
-                        <div class="property-details">Haugesund - 72 m²</div>
+                        <h3 class="property-title">Rennesøygata 8</h3>
+                        <div class="property-meta">Haugesund - 72 m²</div>
                     </div>
                 </div>
             </div>
@@ -371,20 +347,16 @@ Looking at the differences:
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="images/logo-white.svg" alt="Haugli Eiendom">
-                    </div>
+                <div>
+                    <img src="images/logo-white.svg" alt="Haugli Eiendom" class="footer-logo">
                 </div>
-                
                 <div class="footer-section">
                     <h3>Haugli Eiendom</h3>
                     <div class="text-block">Rennesøygata 10</div>
                     <div class="text-block">5537 Haugesund</div>
                     <br>
-                    <a href="#">Personvernerklæring</a>
+                    <div class="text-block">Personvernerklæring</div>
                 </div>
-                
                 <div class="footer-section">
                     <h3>Lenker</h3>
                     <a href="vare-eiendommer.html">Våre eiendommer</a>

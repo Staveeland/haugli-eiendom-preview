@@ -7,11 +7,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2c1810;
-            --accent-color: #e67e22;
-            --text-light: #ffffff;
-            --text-dark: #333333;
-            --background-light: #f8f8f8;
+            --primary-orange: #FF6B35;
+            --dark-brown: #3D2914;
+            --light-gray: #F5F5F5;
+            --medium-gray: #666;
+            --dark-gray: #333;
+            --white: #FFFFFF;
         }
 
         * {
@@ -23,36 +24,20 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--text-dark) !important;
-            background-color: var(--background-light) !important;
         }
 
-        .text-block {
-            display: block;
-            margin-bottom: 1rem;
-        }
-
-        .block {
-            display: block;
-        }
-
-        .meta {
-            font-size: 0.9em;
-            opacity: 0.8;
-        }
-
-        /* Header */
         .header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background-color: transparent !important;
-            padding: 1rem 2rem;
-            z-index: 1000;
+            z-index: 100;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
         }
 
-        .nav-container {
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -60,48 +45,48 @@
             margin: 0 auto;
         }
 
-        .logo {
+        .logo img {
             height: 40px;
         }
 
-        .nav-menu {
+        .nav {
             display: flex;
-            list-style: none;
-            gap: 2rem;
+            gap: 30px;
         }
 
-        .nav-menu a {
-            color: var(--text-light) !important;
+        .nav a {
             text-decoration: none;
-            font-weight: 400;
-            transition: opacity 0.3s ease;
+            color: var(--dark-gray) !important;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s;
         }
 
-        .nav-menu a:hover {
-            opacity: 0.8;
+        .nav a:hover {
+            color: var(--primary-orange) !important;
         }
 
-        /* Hero Section */
-        .hero {
+        .hero-section {
             height: 100vh;
             background-image: url('images/extracted_0.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
             display: flex;
-            align-items: flex-end;
-            padding: 0 2rem 4rem 2rem;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 40px;
             position: relative;
         }
 
-        .hero::before {
+        .hero-section::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+            background: rgba(0, 0, 0, 0.3);
         }
 
         .hero-content {
@@ -112,157 +97,193 @@
             width: 100%;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            color: var(--text-light) !important;
+        .property-title {
+            font-size: 48px;
             font-weight: 300;
-            margin-bottom: 2rem;
+            color: var(--white) !important;
+            margin-bottom: 40px;
         }
 
         .property-tags {
             display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
         }
 
         .tag {
-            padding: 0.8rem 1.5rem;
-            border-radius: 4px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 14px;
             font-weight: 500;
             text-align: center;
-            min-width: 120px;
+            min-width: 100px;
         }
 
-        .tag-location {
-            background-color: var(--accent-color) !important;
-            color: var(--text-light) !important;
+        .tag.location {
+            background-color: var(--primary-orange) !important;
+            color: var(--white) !important;
         }
 
-        .tag-year {
-            background-color: rgba(0,0,0,0.7) !important;
-            color: var(--text-light) !important;
+        .tag.year {
+            background-color: rgba(255, 255, 255, 0.9) !important;
+            color: var(--dark-gray) !important;
         }
 
-        .tag-size {
-            background-color: var(--text-light) !important;
-            color: var(--text-dark) !important;
+        .tag.area {
+            background-color: rgba(255, 255, 255, 0.9) !important;
+            color: var(--dark-gray) !important;
         }
 
-        .tag span {
+        .tag-label {
             display: block;
-            font-size: 0.85rem;
+            font-size: 12px;
+            font-weight: 400;
             opacity: 0.8;
         }
 
-        /* Content Section */
-        .content {
+        .main-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 80px 40px;
         }
 
-        .content .text-block {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-            color: var(--text-dark) !important;
+        .text-block {
+            margin-bottom: 24px;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--dark-gray) !important;
         }
 
-        /* Gallery Section */
-        .gallery-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem 4rem 2rem;
+        .images-section {
+            margin-top: 60px;
         }
 
-        .gallery-section h2 {
-            font-size: 2.5rem;
+        .section-title {
+            font-size: 32px;
             font-weight: 600;
-            margin-bottom: 3rem;
-            color: var(--text-dark) !important;
+            color: var(--dark-gray) !important;
+            margin-bottom: 40px;
         }
 
-        .gallery-grid {
+        .images-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 1rem;
-            height: 600px;
+            grid-gap: 15px;
+            margin-bottom: 15px;
         }
 
-        .gallery-item {
-            border-radius: 8px;
+        .images-grid-bottom {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 15px;
+        }
+
+        .image-item {
+            aspect-ratio: 4/3;
             overflow: hidden;
-            position: relative;
+            border-radius: 8px;
         }
 
-        .gallery-item img {
+        .image-item.large {
+            grid-row: span 2;
+            aspect-ratio: 4/5;
+        }
+
+        .image-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .gallery-item:first-child {
-            grid-row: span 2;
-        }
-
-        .gallery-item:nth-child(4) {
-            grid-row: span 2;
-        }
-
-        .gallery-item:last-child {
-            grid-column: span 2;
-        }
-
-        /* Footer */
         .footer {
-            background-color: var(--primary-color) !important;
-            color: var(--text-light) !important;
-            padding: 3rem 2rem;
+            background-color: var(--dark-brown) !important;
+            padding: 60px 40px 40px;
+            color: var(--white) !important;
         }
 
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .footer-logo {
-            display: flex;
-            flex-direction: column;
+            grid-template-columns: auto 1fr 1fr;
+            gap: 80px;
+            align-items: start;
         }
 
         .footer-logo img {
             height: 60px;
-            width: auto;
-            margin-bottom: 1rem;
+            margin-bottom: 20px;
         }
 
         .footer-section h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
+            font-size: 18px;
             font-weight: 600;
-        }
-
-        .footer-section .text-block {
-            margin-bottom: 0.8rem;
+            margin-bottom: 20px;
+            color: var(--white) !important;
         }
 
         .footer-section a {
-            color: var(--text-light) !important;
+            display: block;
+            color: rgba(255, 255, 255, 0.8) !important;
             text-decoration: none;
-            transition: opacity 0.3s ease;
+            margin-bottom: 8px;
+            font-size: 14px;
+            transition: color 0.3s;
         }
 
         .footer-section a:hover {
-            opacity: 0.8;
+            color: var(--white) !important;
         }
 
-        /* Responsive */
+        .footer-text {
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
         @media (max-width: 900px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .header {
+                padding: 15px 20px;
+            }
+
+            .nav {
+                gap: 20px;
+            }
+
+            .hero-section {
+                padding: 0 20px;
+            }
+
+            .property-title {
+                font-size: 36px;
+            }
+
+            .property-tags {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .main-content {
+                padding: 60px 20px;
+            }
+
+            .images-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav {
+                display: none;
+            }
+
+            .property-title {
+                font-size: 28px;
             }
 
             .property-tags {
@@ -271,164 +292,123 @@
             }
 
             .tag {
-                min-width: auto;
+                min-width: 120px;
             }
 
-            .gallery-grid {
-                grid-template-columns: 1fr 1fr;
-                height: auto;
-            }
-
-            .gallery-item:last-child {
-                grid-column: span 1;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .nav-menu {
-                gap: 1rem;
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .header {
-                padding: 1rem;
-            }
-
-            .hero {
-                padding: 0 1rem 2rem 1rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .content {
-                padding: 2rem 1rem;
-            }
-
-            .gallery-section {
-                padding: 0 1rem 2rem 1rem;
-            }
-
-            .gallery-grid {
+            .images-grid {
                 grid-template-columns: 1fr;
             }
 
-            .gallery-item:first-child,
-            .gallery-item:nth-child(4) {
+            .images-grid-bottom {
+                grid-template-columns: 1fr;
+            }
+
+            .image-item.large {
+                aspect-ratio: 4/3;
                 grid-row: span 1;
-            }
-
-            .nav-menu {
-                flex-direction: column;
-                gap: 0.5rem;
-                font-size: 0.8rem;
             }
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="nav-container">
-            <img src="images/logo-white.svg" alt="Haugli Eiendom" class="logo">
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="vare-eiendommer.html">Våre eiendommer</a></li>
-                    <li><a href="om-oss.html">Om oss</a></li>
-                    <li><a href="kontakt-oss.html">Kontakt oss</a></li>
-                </ul>
+        <div class="header-content">
+            <div class="logo">
+                <img src="images/logo-dark.svg" alt="Haugli Eiendom">
+            </div>
+            <nav class="nav">
+                <a href="vare-eiendommer.html">Våre eiendommer</a>
+                <a href="om-oss.html">Om oss</a>
+                <a href="kontakt-oss.html">Kontakt oss</a>
             </nav>
         </div>
     </header>
 
-    <section class="hero">
+    <section class="hero-section">
         <div class="hero-content">
-            <h1>Rennesøygata 10</h1>
+            <h1 class="property-title">Rennesøygata 10</h1>
             <div class="property-tags">
-                <div class="tag tag-location">
-                    Haugesund
-                    <span>Sted</span>
+                <div class="tag location">
+                    <span class="block">Haugesund</span>
+                    <span class="tag-label">Sted</span>
                 </div>
-                <div class="tag tag-year">
-                    2003
-                    <span>Byggeår</span>
+                <div class="tag year">
+                    <span class="block">2003</span>
+                    <span class="tag-label">Byggeår</span>
                 </div>
-                <div class="tag tag-size">
-                    29 000 m²
-                    <span>Leieareal</span>
+                <div class="tag area">
+                    <span class="block">29 000 m²</span>
+                    <span class="tag-label">Leieareal</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="content">
+    <main class="main-content">
         <div class="text-block">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor vulputate nulla, vel faucibus diam elementum non. Curabitur nisl nulla, maximus in consectetur vel, blandit a est.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor vulputate nulla, vel faucibus diam elementum non. Curabitur nisi nulla, maximus in consectetur vel, blandit a est.
+        </div>
+        
+        <div class="text-block">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor vulputate nulla, vel faucibus diam elementum non. Curabitur nisi nulla, maximus in consectetur vel, blandit a est.
+        </div>
+        
+        <div class="text-block">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor vulputate nulla, vel faucibus diam elementum non. Curabitur nisi nulla, maximus in consectetur vel, blandit a est.
+        </div>
+        
+        <div class="text-block">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor vulputate nulla, vel faucibus diam elementum non. Curabitur nisi nulla, maximus in consectetur vel, blandit a est.
         </div>
 
-        <div class="text-block">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor vulputate nulla, vel faucibus diam elementum non. Curabitur nisl nulla, maximus in consectetur vel, blandit a est.
-        </div>
-
-        <div class="text-block">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor vulputate nulla, vel faucibus diam elementum non. Curabitur nisl nulla, maximus in consectetur vel, blandit a est.
-        </div>
-
-        <div class="text-block">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor vulputate nulla, vel faucibus diam elementum non. Curabitur nisl nulla, maximus in consectetur vel, blandit a est.
-        </div>
-    </section>
-
-    <section class="gallery-section">
-        <h2>Bilder</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="images/extracted_1.jpg" alt="Rennesøygata 10">
+        <section class="images-section">
+            <h2 class="section-title">Bilder</h2>
+            <div class="images-grid">
+                <div class="image-item">
+                    <img src="images/extracted_1.jpg" alt="Eiendom bilde">
+                </div>
+                <div class="image-item">
+                    <img src="images/extracted_2.jpg" alt="Eiendom bilde">
+                </div>
+                <div class="image-item large">
+                    <img src="images/extracted_3.jpg" alt="Eiendom bilde">
+                </div>
             </div>
-            <div class="gallery-item">
-                <img src="images/extracted_2.jpg" alt="Rennesøygata 10">
+            <div class="images-grid-bottom">
+                <div class="image-item">
+                    <img src="images/extracted_4.jpg" alt="Eiendom bilde">
+                </div>
+                <div class="image-item">
+                    <img src="images/extracted_5.jpg" alt="Eiendom bilde">
+                </div>
             </div>
-            <div class="gallery-item">
-                <img src="images/extracted_3.jpg" alt="Rennesøygata 10">
+            <div style="margin-top: 15px;">
+                <div class="image-item">
+                    <img src="images/extracted_6.jpg" alt="Eiendom bilde">
+                </div>
             </div>
-            <div class="gallery-item">
-                <img src="images/extracted_4.jpg" alt="Rennesøygata 10">
-            </div>
-            <div class="gallery-item">
-                <img src="images/extracted_5.jpg" alt="Rennesøygata 10">
-            </div>
-            <div class="gallery-item">
-                <img src="images/extracted_6.jpg" alt="Rennesøygata 10">
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-logo">
                 <img src="images/logo-white.svg" alt="Haugli Eiendom">
-                <div class="text-block meta">EIENDOM</div>
+                <div class="footer-text">Personvernerklæring</div>
             </div>
-            
             <div class="footer-section">
                 <h3>Haugli Eiendom</h3>
-                <div class="text-block">Rennesøygata 10</div>
-                <div class="text-block">5537 Haugesund</div>
-                <br>
-                <div class="text-block">Personvernerklæring</div>
+                <div class="footer-text">
+                    Rennesøygata 10<br>
+                    5537 Haugesund
+                </div>
             </div>
-            
             <div class="footer-section">
                 <h3>Lenker</h3>
-                <div class="text-block"><a href="vare-eiendommer.html">Våre eiendommer</a></div>
-                <div class="text-block"><a href="om-oss.html">Om oss</a></div>
-                <div class="text-block"><a href="kontakt-oss.html">Kontakt oss</a></div>
-                <div class="text-block">Haugli Bakeri</div>
+                <a href="vare-eiendommer.html">Våre eiendommer</a>
+                <a href="om-oss.html">Om oss</a>
+                <a href="kontakt-oss.html">Kontakt oss</a>
+                <a href="#">Haugli Bakeri</a>
             </div>
         </div>
     </footer>
